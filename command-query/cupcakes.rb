@@ -1,12 +1,18 @@
 class Cupcakes
+  attr_reader :cupcakes
+
   def initialize
     @cupcakes = []
   end
 
   def sweetest
-    @cupcakes.sort_by {|cupcake|
-      cupcake.sugar
-    }.last
+    if cupcakes.empty?
+      nil
+    else
+      @cupcakes.sort_by {|cupcake|
+        cupcake.sugar
+      }.last
+    end
   end
 
   def <<(cupcake)

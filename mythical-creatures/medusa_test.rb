@@ -10,13 +10,13 @@ class MedusaTest < Minitest::Test
   end
 
   def test_when_first_created_she_has_no_statues
-    skip
+    # skip
     medusa = Medusa.new("Cassiopeia")
     assert medusa.statues.empty?
   end
 
   def test_when_staring_at_a_person_she_gains_a_statue
-    skip
+    # skip
     medusa = Medusa.new("Cassiopeia")
     victim = Person.new("Perseus")
 
@@ -26,7 +26,7 @@ class MedusaTest < Minitest::Test
   end
 
   def test_when_staring_at_a_person_that_person_turns_to_stone
-    skip
+    # skip
     medusa = Medusa.new("Cassiopeia")
     victim = Person.new("Perseus")
 
@@ -36,13 +36,33 @@ class MedusaTest < Minitest::Test
   end
 
   def test_can_only_have_three_victims
-    skip
+    # skip
     # your code here
+    medusa = Medusa.new("Hunger Goddess")
+    victim_one = Person.new("Loser")
+    victim_two = Person.new("Sucker")
+    victim_three = Person.new("Sap")
+    victim_four = Person.new("Lucky")
+    medusa.stare(victim_one)
+    medusa.stare(victim_two)
+    medusa.stare(victim_three)
+    medusa.stare(victim_four)
+    assert_equal 3, medusa.statues.count
   end
 
   def test_if_a_fourth_victim_is_stoned_first_is_unstoned
-    skip
+    # skip
     # your code here
+    medusa = Medusa.new("Hunger Goddess")
+    victim_one = Person.new("Loser")
+    victim_two = Person.new("Sucker")
+    victim_three = Person.new("Sap")
+    victim_four = Person.new("Lucky")
+    medusa.stare(victim_one)
+    medusa.stare(victim_two)
+    medusa.stare(victim_three)
+    medusa.stare(victim_four)
+    refute victim_one.stoned?
   end
 
 end
